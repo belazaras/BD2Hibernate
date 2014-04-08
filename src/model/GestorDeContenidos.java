@@ -71,8 +71,10 @@ public class GestorDeContenidos {
 	
 	
 	public void registrarReproduccion(Reproducible reproducible, Date fecha, long tiempo){
-		Reproduccion r = new Reproduccion(reproducible,fecha,tiempo);
-		this.reproducciones.add(r);
+		if (this.puedeReproducir(reproducible)){
+			Reproduccion r = new Reproduccion(reproducible,fecha,tiempo);
+			this.reproducciones.add(r);
+		}	
 	}
 	
 	public boolean puedeReproducir(Reproducible reproducible){

@@ -9,6 +9,7 @@ public class Temporada {
 	
 	//Constructores
 	public Temporada(Serie serie, int numero){
+		this.episodios = new ArrayList<Episodio>();
 		this.serie=serie;
 		this.numero=numero;
 		this.serie.agregarTemporada(this);

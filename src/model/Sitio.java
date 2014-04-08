@@ -13,8 +13,8 @@ public class Sitio {
 	/** Constructor **/
 	
 	public Sitio(){
-		this.catalogo= new Catalogo();
-		
+		this.catalogo = new Catalogo();
+		this.usuarios = new ArrayList<Usuario>();
 	}
 	
 	/** Métodos **/
@@ -25,7 +25,7 @@ public class Sitio {
 	}
 	
 	public void registrarUsuario(Usuario usuario) {
-	  	
+	  	this.usuarios.add(usuario);
 	}
 	
 	public Catalogo getCatalogo() {

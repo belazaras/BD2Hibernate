@@ -16,11 +16,8 @@ public class Episodio implements Reproducible {
 		this.numero=numero;
 		this.titulo=titulo;
 		this.temporada=temporada;
-		this.temporada.agregarEpisodio(this);//Agrega el episodio recién creado a la temporada
-		
+		this.temporada.agregarEpisodio(this);//Agrega el episodio recién creado a la temporada		
 	}
-	
-	
 	
 	
 	/**Métodos**/
@@ -38,14 +35,12 @@ public class Episodio implements Reproducible {
 
 	@Override
 	public int getEdadMinima() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getTemporada().getEdadMinima();
 	}
 
 	@Override
 	public boolean aptoPara(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return false;
+		return usuario.edad() >= this.getEdadMinima();
 	}
 
 	@Override

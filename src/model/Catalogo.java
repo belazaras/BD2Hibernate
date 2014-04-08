@@ -14,7 +14,6 @@ public class Catalogo {
 	}
 
 	public Collection<Pelicula> getPeliculas(){
-		//return null;
 		Collection<Pelicula> pelis = new HashSet<Pelicula>();
 		Iterator<Contenido> it = this.contenidos.iterator();
 		while (it.hasNext()) {
@@ -24,8 +23,7 @@ public class Catalogo {
 			  pelis.add(e);
 		      }
 		  }
-		return pelis;
-			
+		return pelis;		
 	}
 
 	public Collection<Serie> getSeries(){

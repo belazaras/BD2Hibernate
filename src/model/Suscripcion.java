@@ -9,7 +9,7 @@ public class Suscripcion {
 	private Date fecha;
 	/**Constructores**/
 	
-	Suscripcion(Date fecha){
+	public Suscripcion(Date fecha){
 		this.categoria = new CategoriaInvitado();
 		this.fecha=fecha;
 	}
@@ -28,8 +28,8 @@ public class Suscripcion {
 		this.categoria= new CategoriaVIP();
 	}
 	
-	public int limiteReproducciones(){
-		return this.categoria.limiteReproducciones();
+	public int limiteDeReproducciones(){
+		return this.categoria.limiteDeReproducciones();
 	}
 
 	public Categoria getCategoria(){

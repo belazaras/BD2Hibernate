@@ -16,11 +16,7 @@ public class Categoria {
 	
 	//Métodos
 	
-	public int limiteReproducciones(){
+	public int limiteDeReproducciones(){
 		return this.limiteReproducciones;
 	}
-	
-	
-	
-
 }

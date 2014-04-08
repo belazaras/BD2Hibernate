@@ -20,7 +20,7 @@ public class Pelicula extends Contenido implements Reproducible {
 	@Override
 	public boolean aptoPara(Usuario usuario) {
 		
-		return (usuario.edad() >= edadMinima);
+		return usuario.edad() >= this.edadMinima;
 	}
 
 	@Override

@@ -24,6 +24,7 @@ public class Usuario {
 		this.catalogo= catalogo;
 		this.suscripcion= new Suscripcion(fechaSuscripcion);
 		this.gestor=new GestorDeContenidos(this,catalogo);
+		this.sesionActual=null;
 	}
 	
 	
@@ -62,6 +63,13 @@ public class Usuario {
 		return this.suscripcion;
 	}
 	
+	public Sesion getSesionActual() {
+		return sesionActual;
+	}
+
+	public void setSesionActual(Sesion sesionActual) {
+		this.sesionActual = sesionActual;
+	}
 	
 	
 }

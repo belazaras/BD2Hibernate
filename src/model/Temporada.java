@@ -8,6 +8,10 @@ public class Temporada {
 	private Collection<Episodio> episodios;
 	
 	//Constructores
+	public Temporada(){
+		
+	}
+	
 	public Temporada(Serie serie, int numero){
 		this.episodios = new ArrayList<Episodio>();
 		this.serie=serie;

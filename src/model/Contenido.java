@@ -7,6 +7,10 @@ public abstract class Contenido {
 	protected int edadMinima;
 	
 	//Constructores
+	public Contenido(){
+		
+	}
+	
 	public Contenido(String titulo,int edadMinima){
 		this.titulo=titulo;
 		this.edadMinima=edadMinima;

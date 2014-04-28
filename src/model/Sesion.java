@@ -7,6 +7,10 @@ public class Sesion {
 	private Reproduccion reproduccion;
 	
 	//Constructores
+	public Sesion(){
+		
+	}
+	
 	public Sesion(Reproduccion reproduccion, Date fecha){
 		this.reproduccion=reproduccion;
 		this.fecha=fecha;

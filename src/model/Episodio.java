@@ -10,6 +10,10 @@ public class Episodio implements Reproducible {
 	
 	//Constructor
 	
+	public Episodio(){
+		
+	}
+	
 	public Episodio(long duracion, int numero, String titulo, Temporada temporada){
 		
 		this.duracion=duracion;

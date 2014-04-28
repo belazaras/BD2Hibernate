@@ -8,6 +8,10 @@ public class Reproduccion {
 	private Reproducible reproducible;
 	
 	//Constructor
+	public Reproduccion(){
+		
+	}
+	
 	public Reproduccion(Reproducible reproducible, Date fecha, long tiempo){
 		this.reproducible=reproducible;
 		this.fecha=fecha;

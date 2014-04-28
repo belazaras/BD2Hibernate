@@ -8,6 +8,10 @@ public class GestorDeContenidos {
 	private Collection<Reproduccion> reproducciones;
 	
 	//Constructores
+	public GestorDeContenidos(){
+		
+	}
+	
 	public GestorDeContenidos(Usuario usuario, Catalogo catalogo){
 		this.usuario=usuario;
 		this.catalogo=catalogo;

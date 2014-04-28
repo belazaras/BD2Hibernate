@@ -7,6 +7,10 @@ public class Serie extends Contenido implements Reproducible {
 	private Collection<Temporada> temporadas;
 	
 	/**Constructor**/
+	public Serie() {
+		
+	}
+	
 	public Serie(String titulo,int edadMinima){
 		super(titulo,edadMinima);
 		this.temporadas = new ArrayList<Temporada>();

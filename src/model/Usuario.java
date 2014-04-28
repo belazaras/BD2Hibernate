@@ -14,6 +14,10 @@ public class Usuario {
 	
 	/**Constructor/es**/
 	
+	public Usuario(){
+		
+	}
+	
 	public Usuario(Date nacimiento, String email, Date fechaSuscripcion, Catalogo catalogo){
 		this.fechaNacimiento= nacimiento;
 		this.email= email;

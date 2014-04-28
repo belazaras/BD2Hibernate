@@ -9,6 +9,10 @@ public class Suscripcion {
 	private Date fecha;
 	/**Constructores**/
 	
+	public Suscripcion(){
+		
+	}
+	
 	public Suscripcion(Date fecha){
 		this.categoria = new CategoriaInvitado();
 		this.fecha=fecha;

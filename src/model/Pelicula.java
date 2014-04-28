@@ -5,7 +5,11 @@ public class Pelicula extends Contenido implements Reproducible {
 	//Variables de instancia
 	private long duracion;
 
-	/**Constructor**/
+	/**Constructores**/
+	public Pelicula(){
+		
+	}
+	
 	public Pelicula(String titulo, int edadMinima, long duracion){
 		super(titulo,edadMinima);
 		this.duracion=duracion;

@@ -6,12 +6,18 @@ public class Usuario {
 	
 	/** Variables de instancia **/
 	private String email;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	private Date fechaNacimiento;
 	private Sesion sesionActual;
 	private GestorDeContenidos gestor;
 	private Suscripcion suscripcion;
 	private Catalogo catalogo;
+	private int idUsuario;
 	
+
 	/**Constructor/es**/
 	
 	public Usuario(){
@@ -29,12 +35,13 @@ public class Usuario {
 	
 	
 	/**Métodos**/
+	
 	public String getEmail() {
 		return this.email;
 	}
 	
 	public int edad() {
-		
+		//Devuelve la edad de un usuario.
 		Calendar fechaNacimiento = Calendar.getInstance();
 		Calendar fechaActual = Calendar.getInstance();
 		fechaNacimiento.setTime(this.fechaNacimiento); //Parseamos la fecha
@@ -69,6 +76,14 @@ public class Usuario {
 
 	public void setSesionActual(Sesion sesionActual) {
 		this.sesionActual = sesionActual;
+	}
+	
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 	

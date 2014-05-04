@@ -2,17 +2,34 @@ package model;
 import java.util.*;
 public class Catalogo {
 
+	/** Variables de instancia **/
 	private Collection<Contenido> contenidos;
+	private int idCatalogo;
 	
+	/**Constructor/es**/
 	public Catalogo(){
 		
 		this.contenidos= new HashSet<Contenido>();
 	}
 	
+	
+	/**Métodos**/
 	public Collection<Contenido> getContenidos(){
 		return this.contenidos;
 	}
 
+	public void setContenidos(Collection<Contenido> contenidos) {
+		this.contenidos = contenidos;
+	}
+	
+	public int getIdCatalogo() {
+		return idCatalogo;
+	}
+
+	public void setIdCatalogo(int idCatalogo) {
+		this.idCatalogo = idCatalogo;
+	}
+	
 	public Collection<Pelicula> getPeliculas(){
 		Collection<Pelicula> pelis = new HashSet<Pelicula>();
 		Iterator<Contenido> it = this.contenidos.iterator();

@@ -6,7 +6,9 @@ public class GestorDeContenidos {
 	private Usuario usuario;
 	private Catalogo catalogo;
 	private Collection<Reproduccion> reproducciones;
+	private int idGestorDeContenidos;
 	
+
 	//Constructores
 	public GestorDeContenidos(){
 		
@@ -102,7 +104,13 @@ public class GestorDeContenidos {
 		return this.catalogo;
 	}
 	
-	
+	public int getIdGestorDeContenidos() {
+		return idGestorDeContenidos;
+	}
+
+	public void setIdGestorDeContenidos(int idGestorDeContenidos) {
+		this.idGestorDeContenidos = idGestorDeContenidos;
+	}
 	
 	
 	

@@ -9,6 +9,8 @@ public class Sitio {
 	/** Variables de instancia **/
 	private Catalogo catalogo;
 	private Collection<Usuario> usuarios;
+	private int idSitio;
+
 
 	/** Constructor **/
 	
@@ -24,6 +26,10 @@ public class Sitio {
 	  return this.usuarios;		
 	}
 	
+	public void setUsuarios(Collection<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}	
+	
 	public void registrarUsuario(Usuario usuario) {
 	  	this.usuarios.add(usuario);
 	}
@@ -32,9 +38,17 @@ public class Sitio {
 		return this.catalogo;
 	}
 	
+	public void setCatalogo(Catalogo catalogo) {
+		this.catalogo = catalogo;
+	}
 	
-	
-	
+	public int getIdSitio() {
+		return idSitio;
+	}
+
+	public void setIdSitio(int idSitio) {
+		this.idSitio = idSitio;
+	}
 	
 
 }

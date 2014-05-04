@@ -6,10 +6,6 @@ public class Usuario {
 	
 	/** Variables de instancia **/
 	private String email;
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	private Date fechaNacimiento;
 	private Sesion sesionActual;
 	private GestorDeContenidos gestor;
@@ -17,7 +13,6 @@ public class Usuario {
 	private Catalogo catalogo;
 	private int idUsuario;
 	
-
 	/**Constructor/es**/
 	
 	public Usuario(){
@@ -38,6 +33,10 @@ public class Usuario {
 	
 	public String getEmail() {
 		return this.email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public int edad() {
@@ -61,15 +60,35 @@ public class Usuario {
 	public Date getFechaNacimiento() {
 		return this.fechaNacimiento;
 	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
 	
 	public GestorDeContenidos getGestor() {
 		return this.gestor;
+	}
+
+	public void setGestor(GestorDeContenidos gestor) {
+		this.gestor = gestor;
 	}
 	
 	public Suscripcion getSuscripcion() {
 		return this.suscripcion;
 	}
 	
+	public void setSuscripcion(Suscripcion suscripcion) {
+		this.suscripcion = suscripcion;
+	}
+	
+	public Catalogo getCatalogo() {
+		return catalogo;
+	}
+
+	public void setCatalogo(Catalogo catalogo) {
+		this.catalogo = catalogo;
+	}
+
 	public Sesion getSesionActual() {
 		return sesionActual;
 	}

@@ -12,6 +12,10 @@
 <property name="show_sql">true</property>
 <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 <property name="hibernate.current_session_context_class">thread</property>
+<mapping resource="hibernate/mappings.hbm.xml" /> <!--  Esto eventualmente no va -->
+<mapping resource="hibernate/usuario.hbm.xml" />
+<mapping resource="hibernate/catalogo.hbm.xml" />
+<mapping resource="hibernate/sitio.hbm.xml" />
 <mapping resource="hibernate/mappings.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+	<class name="Catalogo" table="CATALOGO">
+		<id name="idCatalogo" column="ID_CATALOGO">
+			<generator class="native"/>
+		</id>
+		<set name="contenidos" table ="CONTENIDOS_CATALOGO" cascade="all">
+			<key column="idCatalogo" not-null="true"/>
+			<one-to-many class="Contenido"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+	<class name="Usuario" table="USUARIO">
+		<id name="idUsuario" column="ID_USUARIO">
+			<generator class="native"/>
+		</id>
+		<property name="email"/>
+		<property name="fechaDeNacimiento"/>
+		
+		<!-- Los siguientes creo que son mapeos one-to-one -->
+ 		<property name="sesionActual"/>
+		<property name="gestor"/>
+		<property name="suscripcion"/>
+		
+		<property name="catalogo"/> <!-- Este me parece que no va -->
+	</class>
+	
+</hibernate-mapping>

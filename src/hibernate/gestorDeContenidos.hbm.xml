@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+	<class name="gestorDeContenidos" table="GESTORDECONTENIDOS">
+		<id name="idGestorDeContenidos" column="ID_GESTORDECONTENIDOS">
+			<generator class="native"/>
+		</id>
+		<property name="usuario"/>
+		<set name="usuarios" table ="USUARIOS_SITIO" cascade="all">
+			<key column="idSitio" not-null="true"/>
+			<one-to-many class="Usuario"/>
+		</set>
+	</class>
+</hibernate-mapping>

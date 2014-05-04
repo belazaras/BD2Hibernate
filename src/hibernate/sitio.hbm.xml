@@ -8,10 +8,18 @@
 		<id name="idSitio" column="ID_SITIO">
 			<generator class="native"/>
 		</id>
-		<property name="catalogo"/>
-		<set name="usuarios" table ="USUARIOS_SITIO" cascade="all">
+		
+		<!--  <property name="catalogo"/> -->
+		<many-to-one name="catalogo" 
+					 column="ID_CATALOGO"
+					 unique="false"
+					 not-null="true"
+					 cascade="all"/>		
+					 
+		<list name="usuarios" table ="USUARIOS_SITIO" cascade="all">
 			<key column="idSitio" not-null="true"/>
+			<list-index column="line_number"/> <!--  Esto?? -->
 			<one-to-many class="Usuario"/>
-		</set>
+		</list>
 	</class>
 </hibernate-mapping>

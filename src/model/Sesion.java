@@ -5,7 +5,9 @@ public class Sesion {
 	//Variables de instancia
 	private Date fecha;
 	private Reproduccion reproduccion;
+	private int idSesion;
 	
+
 	//Constructores
 	public Sesion(){
 		
@@ -23,5 +25,13 @@ public class Sesion {
 	
 	public Reproduccion getReproduccion(){
 		return this.reproduccion;
+	}
+	
+	public int getIdSesion() {
+		return idSesion;
+	}
+
+	public void setIdSesion(int idSesion) {
+		this.idSesion = idSesion;
 	}
 }

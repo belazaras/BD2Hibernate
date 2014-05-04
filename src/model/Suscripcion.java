@@ -7,6 +7,8 @@ public class Suscripcion {
 	/**Variables de instancia **/
 	private Categoria categoria;
 	private Date fecha;
+	private int idSuscripcion;
+
 	/**Constructores**/
 	
 	public Suscripcion(){
@@ -40,4 +42,12 @@ public class Suscripcion {
 		return this.categoria;
 	}
 
+	public int getIdSuscripcion() {
+		return idSuscripcion;
+	}
+
+	public void setIdSuscripcion(int idSuscripcion) {
+		this.idSuscripcion = idSuscripcion;
+	}
+	
 }

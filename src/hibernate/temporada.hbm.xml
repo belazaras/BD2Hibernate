@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+	<class name="Temporada" table="TEMPORADA">
+		<id name="idTemporada" column="ID_TEMPORADA">
+			<generator class="native"/>
+		</id>
+		<property name="numero" not-null="true"/>
+
+		<many-to-one name="Serie" column="ID_CONTENIDO" not-null="true" cascade="all"/>
+		<one-to-many class="Episodio" not-found="exception"/> 	 					
+	</class>
+</hibernate-mapping>

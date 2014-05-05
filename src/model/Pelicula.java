@@ -1,20 +1,32 @@
 package model;
 
 public class Pelicula extends Contenido implements Reproducible {
-	
-	//Variables de instancia
+
+	// Identificador
+	private Long idPelicula;
+
+	public Long getIdPelicula() {
+		return idPelicula;
+	}
+
+	public void setIdPelicula(Long idPelicula) {
+		this.idPelicula = idPelicula;
+	}
+
+	// Variables de instancia
 	private long duracion;
 
-	/**Constructores**/
-	public Pelicula(){
-		
+	/** Constructores **/
+	public Pelicula() {
+
 	}
-	
-	public Pelicula(String titulo, int edadMinima, long duracion){
-		super(titulo,edadMinima);
-		this.duracion=duracion;
+
+	public Pelicula(String titulo, int edadMinima, long duracion) {
+		super(titulo, edadMinima);
+		this.duracion = duracion;
 	}
-	/**Métodos**/
+
+	/** Métodos **/
 	@Override
 	public long getDuracion() {
 		// TODO Auto-generated method stub
@@ -23,7 +35,7 @@ public class Pelicula extends Contenido implements Reproducible {
 
 	@Override
 	public boolean aptoPara(Usuario usuario) {
-		
+
 		return usuario.edad() >= this.edadMinima;
 	}
 
@@ -31,19 +43,14 @@ public class Pelicula extends Contenido implements Reproducible {
 	public boolean esEpisodio() {
 		// TODO Auto-generated method stub
 		return false;
-	} 
-	
-	
-	public boolean esPelicula(){
+	}
+
+	public boolean esPelicula() {
 		return true;
 	}
 
 	public boolean esSerie() {
 		return false;
 	}
-	
-	
-	
-	
-	
+
 }

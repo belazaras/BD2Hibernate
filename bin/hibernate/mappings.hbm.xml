@@ -15,19 +15,4 @@
 		<property name="sucripcion"/>
 		<property name="catalogo"/>
 	</class>
-
-	<class name="Catalogo" table="CATALOGO">
-		<id name="">
-		
-		</id>
-		
-	
-	
-	</class>
-
-
-
-
-
-
 </hibernate-mapping>

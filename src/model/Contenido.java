@@ -2,34 +2,42 @@ package model;
 
 public abstract class Contenido {
 
-	//Variables de instancia
+	// Identificador
+	private Long idContenido;
+
+	public Long getIdContenido() {
+		return idContenido;
+	}
+
+	public void setIdContenido(Long idContenido) {
+		this.idContenido = idContenido;
+	}
+
+	// Variables de instancia
 	protected String titulo;
 	protected int edadMinima;
-	
-	//Constructores
-	public Contenido(){
-		
+
+	// Constructores
+	public Contenido() {
+
 	}
-	
-	public Contenido(String titulo,int edadMinima){
-		this.titulo=titulo;
-		this.edadMinima=edadMinima;
+
+	public Contenido(String titulo, int edadMinima) {
+		this.titulo = titulo;
+		this.edadMinima = edadMinima;
 	}
-	
-	//Metodos
-	public String getTitulo(){
+
+	// Metodos
+	public String getTitulo() {
 		return this.titulo;
 	}
 
-	public int getEdadMinima(){
+	public int getEdadMinima() {
 		return edadMinima;
 	}
-	
+
 	public abstract boolean esPelicula();
-	
+
 	public abstract boolean esSerie();
 
-	
-	
-	
 }

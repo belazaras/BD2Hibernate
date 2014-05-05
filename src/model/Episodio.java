@@ -2,29 +2,41 @@ package model;
 
 public class Episodio implements Reproducible {
 
-	/**Variables de instancia**/
+	// Identificador
+	private Long idEpisodio;
+
+	public Long getIdEpisodio() {
+		return idEpisodio;
+	}
+
+	public void setIdEpisodio(Long idEpisodio) {
+		this.idEpisodio = idEpisodio;
+	}
+
+	/** Variables de instancia **/
 	private long duracion;
 	private int numero;
 	private String titulo;
 	private Temporada temporada;
-	
-	//Constructor
-	
-	public Episodio(){
-		
+
+	// Constructor
+
+	public Episodio() {
+
 	}
-	
-	public Episodio(long duracion, int numero, String titulo, Temporada temporada){
-		
-		this.duracion=duracion;
-		this.numero=numero;
-		this.titulo=titulo;
-		this.temporada=temporada;
-		this.temporada.agregarEpisodio(this);//Agrega el episodio recién creado a la temporada		
+
+	public Episodio(long duracion, int numero, String titulo,
+			Temporada temporada) {
+
+		this.duracion = duracion;
+		this.numero = numero;
+		this.titulo = titulo;
+		this.temporada = temporada;
+		this.temporada.agregarEpisodio(this);// Agrega el episodio recién creado
+												// a la temporada
 	}
-	
-	
-	/**Métodos**/
+
+	/** Métodos **/
 	@Override
 	public String getTitulo() {
 		// TODO Auto-generated method stub
@@ -59,13 +71,12 @@ public class Episodio implements Reproducible {
 		return true;
 	}
 
-	public int getNumero(){
+	public int getNumero() {
 		return this.numero;
 	}
-	
-	public Temporada getTemporada(){
+
+	public Temporada getTemporada() {
 		return this.temporada;
 	}
-	
-	
+
 }

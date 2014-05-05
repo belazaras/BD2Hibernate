@@ -18,7 +18,7 @@ public class Test {
 		{
 		try
 		{
-		//Se instancía la configuración
+		//Se instancia la configuración
 		Configuration cfg = new Configuration();
 		//Se configura hibernate tomando el archivo de configuracion
 		cfg.configure("hibernate/hibernate.cfg.xml");
@@ -35,7 +35,7 @@ public class Test {
 		session = sessionFactory.openSession();
 		//Se crea la clase alumno
 		Usuario usuario = new Usuario();
-		usuario.setEmail("soyyo@lala.com");
+		usuario.setEmail("soyyo@lala2.com");
 		
 		System.out.println("Insertando un usuario");
 		//Se inicia la transacción

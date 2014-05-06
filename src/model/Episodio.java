@@ -79,4 +79,20 @@ public class Episodio implements Reproducible {
 		return this.temporada;
 	}
 
+	public void setDuracion(long duracion) {
+		this.duracion = duracion;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setTemporada(Temporada temporada) {
+		this.temporada = temporada;
+	}
+	
 }

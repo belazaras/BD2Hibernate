@@ -64,4 +64,8 @@ public class Serie extends Contenido implements Reproducible {
 		this.temporadas.add(temporada);
 	}
 
+	public void setTemporadas(Collection<Temporada> temporadas) {
+		this.temporadas = temporadas;
+	}
+	
 }

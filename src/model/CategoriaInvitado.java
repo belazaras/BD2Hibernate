@@ -17,5 +17,5 @@ public class CategoriaInvitado extends Categoria {
 		
 		return this.limiteReproducciones;
 	}
-
+	
 }

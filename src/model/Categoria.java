@@ -30,4 +30,13 @@ public class Categoria {
 	public int limiteDeReproducciones() {
 		return this.limiteReproducciones;
 	}
+
+	public int getLimiteReproducciones() {
+		return limiteReproducciones;
+	}
+
+	public void setLimiteReproducciones(int limiteReproducciones) {
+		this.limiteReproducciones = limiteReproducciones;
+	}
+	
 }

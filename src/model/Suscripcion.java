@@ -49,5 +49,13 @@ public class Suscripcion {
 	public void setIdSuscripcion(int idSuscripcion) {
 		this.idSuscripcion = idSuscripcion;
 	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 	
 }

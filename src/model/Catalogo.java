@@ -59,6 +59,6 @@ public class Catalogo {
 	public void agregar(Contenido contenido){
 	  this.contenidos.add(contenido);	
 	}
-
+	
 
 }

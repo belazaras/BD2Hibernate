@@ -40,4 +40,12 @@ public abstract class Contenido {
 
 	public abstract boolean esSerie();
 
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setEdadMinima(int edadMinima) {
+		this.edadMinima = edadMinima;
+	}
+	
 }

@@ -8,11 +8,23 @@
 		<id name="idGestorDeContenidos" column="ID_GESTORDECONTENIDOS">
 			<generator class="native"/>
 		</id>
-		
-		<set name="usuarios" table ="USUARIOS_SITIO" cascade="all">
+	
+		<set name="usuarios" table ="USUARIOS_SITIO" cascade="all" inverse="true">
 			<key column="ID_GESTORDECONTENIDOS" not-null="true"/>
 			<one-to-many class="Usuario"/>
 		</set>
+		
+		<many-to-one name="catalogo" 
+					 column="ID_CATALOGO"
+					 unique="true"
+					 not-null="true"
+					 cascade="all"/>
+		
+		<list name="reproducciones" table="REPRODUCCIONES" cascade="all" inverse="true">
+			<key column="ID_GESTORDECONTENIDOS" not-null="true"/>
+			<list-index column="ID_REPRODUCCION"/>
+			<one-to-many class="Reproduccion" not-found="exception"/>
+		</list>					
 		
 	</class>
 </hibernate-mapping>

@@ -53,4 +53,8 @@ public class Pelicula extends Contenido implements Reproducible {
 		return false;
 	}
 
+	public void setDuracion(long duracion) {
+		this.duracion = duracion;
+	}
+	
 }

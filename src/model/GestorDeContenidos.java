@@ -115,4 +115,18 @@ public class GestorDeContenidos {
 	public Catalogo getCatalogo() {
 		return this.catalogo;
 	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setCatalogo(Catalogo catalogo) {
+		this.catalogo = catalogo;
+	}
+
+	public void setReproducciones(Collection<Reproduccion> reproducciones) {
+		this.reproducciones = reproducciones;
+	}
+	
+	
 }

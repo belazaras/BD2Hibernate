@@ -45,4 +45,16 @@ public class Reproduccion {
 		return reproducible;
 	}
 
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public void setTiempo(long tiempo) {
+		this.tiempo = tiempo;
+	}
+
+	public void setReproducible(Reproducible reproducible) {
+		this.reproducible = reproducible;
+	}
+	
 }

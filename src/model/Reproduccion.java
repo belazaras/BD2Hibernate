@@ -1,34 +1,48 @@
 package model;
+
 import java.util.*;
+
 public class Reproduccion {
-	
-	/**Variables de instancia**/
+
+	// Identificador
+	private Long idReproduccion;
+
+	public Long getIdReproduccion() {
+		return idReproduccion;
+	}
+
+	public void setIdReproduccion(Long idReproduccion) {
+		this.idReproduccion = idReproduccion;
+	}
+
+	/** Variables de instancia **/
 	private Date fecha;
 	private long tiempo;
 	private Reproducible reproducible;
-	
-	//Constructor
-	public Reproduccion(){
-		
+
+	// Constructor
+	public Reproduccion() {
+
 	}
-	
-	public Reproduccion(Reproducible reproducible, Date fecha, long tiempo){
-		this.reproducible=reproducible;
-		this.fecha=fecha;
-		this.tiempo=tiempo;
+
+	public Reproduccion(Reproducible reproducible, Date fecha, long tiempo) {
+		this.reproducible = reproducible;
+		this.fecha = fecha;
+		this.tiempo = tiempo;
 	}
-	
-	/**Métodos**/
-	
+
+	/** Métodos **/
+
 	public Date getFecha() {
 		return fecha;
 	}
+
 	public long getTiempo() {
 		return tiempo;
 	}
+
 	public Reproducible getReproducible() {
 		return reproducible;
 	}
-	
-	
+
 }

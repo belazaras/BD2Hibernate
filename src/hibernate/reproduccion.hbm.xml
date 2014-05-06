@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+	<class name="Reproduccion" table="REPRODUCCION">
+		<id name="idReproduccion" column="ID_REPRODUCCION">
+			<generator class="native"/>
+		</id>
+		<property name="fecha" not-null="true"/>
+		<property name="tiempo" not-null="true"/>
+		<!-- Ver reproducible	 --> 	 					
+	</class>
+</hibernate-mapping>

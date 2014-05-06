@@ -18,7 +18,10 @@
 		</subclass>
 
 		<subclass name="Serie" discriminator-value="S">
-			<one-to-many class="Temporada" not-found="exception"/>
+			<list name="temporadas" table="TEMPORADAS_SERIE" cascade="all">
+				<key column="ID_SERIE" not-null="true"/>
+				<one-to-many class="Temporada" not-found="exception"/>
+			</list>		
 		</subclass>	 		 					
 	</class>
 </hibernate-mapping>

@@ -83,6 +83,9 @@ public class Usuario {
 		return sesionActual;
 	}
 
+	public void setSesion(Sesion sesionActual) {
+		this.sesionActual = sesionActual;
+	}
 	public void setSesionActual(Sesion sesionActual) {
 		this.sesionActual = sesionActual;
 	}

@@ -47,6 +47,18 @@ public class Temporada {
 	public void setIdTemporada(int idTemporada) {
 		this.idTemporada = idTemporada;
 	}
+
+	public void setSerie(Serie serie) {
+		this.serie = serie;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setEpisodios(Collection<Episodio> episodios) {
+		this.episodios = episodios;
+	}
 	
 	
 }

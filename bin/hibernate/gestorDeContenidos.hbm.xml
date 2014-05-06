@@ -9,10 +9,12 @@
 			<generator class="native"/>
 		</id>
 	
-		<set name="usuarios" table ="USUARIOS_SITIO" cascade="all" inverse="true">
-			<key column="ID_GESTORDECONTENIDOS" not-null="true"/>
-			<one-to-many class="Usuario"/>
-		</set>
+		
+		<many-to-one name="usuario" 
+					 column="ID_USUARIO"
+					 unique="true"
+					 not-null="true"
+					 cascade="all"/>		
 		
 		<many-to-one name="catalogo" 
 					 column="ID_CATALOGO"

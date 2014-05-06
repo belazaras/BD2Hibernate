@@ -6,7 +6,7 @@
 <hibernate-mapping package="model">
 	<class name="Categoria" table="CATEGORIA">
 		<id name="idCategoria" column="ID_CATEGORIA">
-			<generator class="native"/>
+			<generator class="hilo"/>
 		</id>
 		
 		<union-subclass name="CategoriaInvitado" table="CATEGORIA_INVITADO">

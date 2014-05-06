@@ -8,20 +8,25 @@
 		<id name="idContenido" column="ID_CONTENIDO">
 			<generator class="native"/>
 		</id>
+		
+		<discriminator column="TIPO_CONTENIDO" type="string"/>
+		
 		<property name="titulo" not-null="true"/>
+
 		<property name="edadMinima"/>
 
-		<discriminator column="TIPO_CONTENIDO" type="string"/>
 
 		<subclass name="Pelicula" discriminator-value="P">
 			<property name="duracion"/>
 		</subclass>
 
 		<subclass name="Serie" discriminator-value="S">
-			<list name="temporadas" table="TEMPORADAS_SERIE" cascade="all">
+			<list name="temporadas" table="TEMPORADAS_SERIE" cascade="all" inverse="true">
 				<key column="ID_SERIE" not-null="true"/>
-				<one-to-many class="Temporada" not-found="exception"/>
+				<list-index column="ID_TEMPORADA"/>
+				<one-to-many class="Temporada" not-found="exception" />
 			</list>		
 		</subclass>	 		 					
+		
 	</class>
 </hibernate-mapping>

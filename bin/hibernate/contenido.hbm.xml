@@ -4,35 +4,29 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="model">
-	<class name="Usuario" table="USUARIO">
-		<id name="idUsuario" column="ID_USUARIO">
+	<class name="Contenido" table="CONTENIDO">
+		<id name="idContenido" column="ID_CONTENIDO">
 			<generator class="native"/>
 		</id>
-		<property name="email"/>
-		<property name="fechaDeNacimiento"/>
 		
-		<!-- Los siguientes creo que son mapeos one-to-one 
- 		<property name="sesionActual"/>
-		<property name="gestor"/>
-		<property name="suscripcion"/> -->
+		<discriminator column="TIPO_CONTENIDO" type="string"/>
 		
-		<many-to-one name="sesionActual" 
-					 column="ID_SESION"
-					 unique="false"
-					 not-null="true"
-					 cascade="all"/>
-		<many-to-one name="gestor" 
-					 column="ID_GESTORDECONTENIDOS"
-					 unique="false"
-					 not-null="true"
-					 cascade="all"/>	
-		<many-to-one name="suscripcion" 
-					 column="ID_SUSCRIPCION"
-					 unique="false"
-					 not-null="true"
-					 cascade="all"/>			 		 
-					
-		<property name="catalogo"/> <!-- Este me parece que no va -->
+		<property name="titulo" not-null="true"/>
+
+		<property name="edadMinima"/>
+
+
+		<subclass name="Pelicula" discriminator-value="P">
+			<property name="duracion"/>
+		</subclass>
+
+		<subclass name="Serie" discriminator-value="S">
+			<list name="temporadas" table="TEMPORADAS_SERIE" cascade="all" inverse="true">
+				<key column="ID_SERIE" not-null="true"/>
+				<list-index column="ID_TEMPORADA"/>
+				<one-to-many class="Temporada" not-found="exception" />
+			</list>		
+		</subclass>	 		 					
+		
 	</class>
-	
 </hibernate-mapping>

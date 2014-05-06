@@ -9,7 +9,7 @@
 			<generator class="native"/>
 		</id>
 		<property name="email" not-null="true"/>
-		<property name="fechaDeNacimiento"/>
+		<property name="fechaNacimiento"/>
 				
 		<many-to-one name="sesionActual" 
 					 column="ID_SESION"

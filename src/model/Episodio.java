@@ -3,13 +3,13 @@ package model;
 public class Episodio implements Reproducible {
 
 	// Identificador
-	private Long idEpisodio;
+	private int idEpisodio;
 
-	public Long getIdEpisodio() {
+	public int getIdEpisodio() {
 		return idEpisodio;
 	}
 
-	public void setIdEpisodio(Long idEpisodio) {
+	public void setIdEpisodio(int idEpisodio) {
 		this.idEpisodio = idEpisodio;
 	}
 

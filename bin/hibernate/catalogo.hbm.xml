@@ -8,9 +8,9 @@
 		<id name="idCatalogo" column="ID_CATALOGO">
 			<generator class="native"/>
 		</id>
-		<set name="contenidos" table ="CONTENIDOS_CATALOGO" cascade="all">
-			<key column="idCatalogo" not-null="true"/>
-			<one-to-many class="Contenido"/>
+		<set name="contenidos" table="CONTENIDOS_CATALOGO" cascade="all">
+			<key column="ID_CATALOGO" not-null="true"/>
+			<one-to-many class="Contenido" not-found="exception"/>
 		</set>
 	</class>
 </hibernate-mapping>

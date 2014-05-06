@@ -11,6 +11,9 @@
 		<property name="numero" not-null="true"/>
 
 		<many-to-one name="Serie" column="ID_CONTENIDO" not-null="true" cascade="all"/>
-		<one-to-many class="Episodio" not-found="exception"/> 	 					
+		<list name="episodios" table="EPISODIOS_TEMPORADA" cascade="all">
+			<key column="ID_TEMPORADA" not-null="true"/>
+			<one-to-many class="Episodio" not-found="exception"/>
+		</list>		 	 					
 	</class>
 </hibernate-mapping>

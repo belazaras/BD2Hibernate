@@ -23,7 +23,7 @@
 					 cascade="all"/>
 		
 		<list name="reproducciones" table="REPRODUCCIONES" cascade="all" inverse="true">
-			<key column="ID_GESTORDECONTENIDOS" not-null="true"/>
+			<key column="ID_GESTORDECONTENIDOS" not-null="false"/>
 			<list-index column="ID_REPRODUCCION"/>
 			<one-to-many class="Reproduccion" not-found="exception"/>
 		</list>					

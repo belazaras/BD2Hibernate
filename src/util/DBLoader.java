@@ -54,7 +54,7 @@ public class DBLoader {
 			
 			System.out.println("DONE.");
 		} catch (Exception e) {
-			System.out.println("------------------------FAIL.------------------------");
+			System.out.println("------------------------DALE QUE LLEGAS!!------------------------");
 			e.printStackTrace();
 		}
 	}

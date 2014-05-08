@@ -6,9 +6,10 @@
 <hibernate-mapping package="model">
 	<class name="Catalogo" table="CATALOGO">
 		<id name="idCatalogo" column="ID_CATALOGO">
-			<generator class="native"/>
+			<generator class="increment"/>
+			
 		</id>
-		<set name="contenidos" table="CONTENIDOS_CATALOGO" cascade="all">
+		<set name="contenidos" cascade="all">
 			<key column="ID_CATALOGO" not-null="true"/>
 			<one-to-many class="Contenido" not-found="exception"/>
 		</set>

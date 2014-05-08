@@ -14,9 +14,9 @@
 					 not-null="true"
 					 cascade="all"/>		
 					 
-		<list name="usuarios" table="USUARIOS_SITIO" cascade="all" inverse="true">
+		<list name="usuarios" table="USUARIO" cascade="all">
 			<key column="ID_SITIO" not-null="true"/>
-			<list-index column="ID_USUARIO" />
+			<list-index column="ID_LISTA_USUARIOS" />
 			<one-to-many class="Usuario" not-found="exception"/>
 		</list>
 	</class>

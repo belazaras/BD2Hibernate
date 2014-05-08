@@ -6,27 +6,28 @@
 <hibernate-mapping package="model">
 	<class name="GestorDeContenidos" table="GESTORDECONTENIDOS">
 		<id name="idGestorDeContenidos" column="ID_GESTORDECONTENIDOS">
-			<generator class="native"/>
+			<generator class="increment"/>
 		</id>
-	
+		
+		<list name="reproducciones" table="REPRODUCCION" cascade="all" inverse="false">
+			<key column="ID_GESTORDECONTENIDOS"/>
+			<list-index column="ID_LISTA_REPRODUCCION"/>
+			<one-to-many class="Reproduccion"/>
+		</list>					
+			
 		
 		<many-to-one name="usuario" 
 					 column="ID_USUARIO"
 					 unique="true"
 					 not-null="true"
-					 cascade="all"/>		
+					 cascade="save-update"/>		
 		
 		<many-to-one name="catalogo" 
 					 column="ID_CATALOGO"
 					 unique="true"
-					 not-null="true"
-					 cascade="all"/>
+					 not-null="false"
+					 cascade="save-update"/>
 		
-		<list name="reproducciones" table="REPRODUCCIONES" cascade="all" inverse="true">
-			<key column="ID_GESTORDECONTENIDOS" not-null="false"/>
-			<list-index column="ID_REPRODUCCION"/>
-			<one-to-many class="Reproduccion" not-found="exception"/>
-		</list>					
-		
+
 	</class>
 </hibernate-mapping>

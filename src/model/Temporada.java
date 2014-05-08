@@ -6,7 +6,7 @@ public class Temporada {
 	private Serie serie;
 	private int numero;
 	private Collection<Episodio> episodios;
-	private int idTemporada;
+	private Long idTemporada;
 	//Constructores
 	public Temporada(){
 		
@@ -40,11 +40,11 @@ public class Temporada {
 		return this.episodios;
 	}
 
-	public int getIdTemporada() {
+	public Long getIdTemporada() {
 		return idTemporada;
 	}
 
-	public void setIdTemporada(int idTemporada) {
+	public void setIdTemporada(Long idTemporada) {
 		this.idTemporada = idTemporada;
 	}
 

@@ -9,6 +9,6 @@
 			<generator class="native"/>
 		</id>
 		<property name="fecha"/>
-		<many-to-one name="Reproduccion" column="ID_REPRODUCCION" unique="true" not-null="true"/>
+		<many-to-one name="Reproduccion" column="ID_REPRODUCCION" unique="true" cascade="all"/>
 	</class>
 </hibernate-mapping>

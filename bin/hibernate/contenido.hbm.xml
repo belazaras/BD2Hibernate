@@ -23,7 +23,7 @@
 		<subclass name="Serie" discriminator-value="S">
 			<list name="temporadas" table="TEMPORADAS_SERIE" cascade="all" inverse="true">
 				<key column="ID_SERIE" not-null="false"/>
-				<list-index column="ID_TEMPORADA"/>
+				<list-index column="ID_TEMPORADA_SERIE"/>
 				<one-to-many class="Temporada" not-found="exception" />
 			</list>		
 		</subclass>	 		 					

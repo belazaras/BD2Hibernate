@@ -10,8 +10,8 @@
 		</id>
 		<property name="numero" not-null="true"/>
 
-		<list name="episodios" cascade="save-update" inverse="true">
-			<key column="ID_TEMPORADA" not-null="true" update="false"/>
+		<list name="episodios" cascade="all" inverse="true">
+			<key column="ID_TEMPORADA" not-null="true" />
 			<list-index column="ID_EPISODIO_TEMPORADA"/>
 			<many-to-many class="Episodio" not-found="exception"/>
 		</list>

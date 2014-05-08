@@ -15,8 +15,6 @@
 		<many-to-one name="temporada" 
 					 column="ID_TEMPORADA"
 					 not-null="true"
-					 cascade="all"
-					 foreign-key="ID_TEMPORADA"
-					 not-found="ignore" />	 					
+					 cascade="all"/>	 					
 	</class>
 </hibernate-mapping>

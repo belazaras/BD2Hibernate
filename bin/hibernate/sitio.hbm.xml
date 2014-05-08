@@ -6,7 +6,7 @@
 <hibernate-mapping package="model">
 	<class name="Sitio" table="SITIO">
 		<id name="idSitio" column="ID_SITIO">
-			<generator class="native"/>
+			<generator class="identity"/>
 		</id>
 		<many-to-one name="catalogo" 
 					 column="ID_CATALOGO"

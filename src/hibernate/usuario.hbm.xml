@@ -17,9 +17,9 @@
 					 not-null="false"
 					 cascade="all"/>
 		
-		<one-to-one name="gestor" 
-					 property-ref="usuario"
-					 />	
+		<one-to-one name="gestor"
+					class="model.GestorDeContenidos" 
+					cascade="save-update"/>	
 		
 		<many-to-one name="suscripcion" 
 					 column="ID_SUSCRIPCION"

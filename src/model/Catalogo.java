@@ -4,7 +4,7 @@ public class Catalogo {
 
 	/** Variables de instancia **/
 	private Collection<Contenido> contenidos;
-	private int idCatalogo;
+	private Long idCatalogo;
 	
 	/**Constructor/es**/
 	public Catalogo(){
@@ -22,11 +22,11 @@ public class Catalogo {
 		this.contenidos = contenidos;
 	}
 	
-	public int getIdCatalogo() {
+	public Long getIdCatalogo() {
 		return idCatalogo;
 	}
 
-	public void setIdCatalogo(int idCatalogo) {
+	public void setIdCatalogo(Long idCatalogo) {
 		this.idCatalogo = idCatalogo;
 	}
 	

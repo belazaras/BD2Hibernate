@@ -63,6 +63,7 @@ public class DBLoader {
 		Sitio sitio = new Sitio();
 		Catalogo catalogo = sitio.getCatalogo();
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		
 		Pelicula dragna = new Pelicula("Dragna", 14, 732600);
 		catalogo.agregar(dragna);
 		Pelicula billythekidmcdonnen = new Pelicula("Billy The Kid McDonnen", 17, 838200);

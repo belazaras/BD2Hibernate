@@ -6,7 +6,7 @@
 <hibernate-mapping package="model">
 	<class name="Catalogo" table="CATALOGO">
 		<id name="idCatalogo" column="ID_CATALOGO">
-			<generator class="increment"/>
+			<generator class="identity"/>
 			
 		</id>
 		<set name="contenidos" cascade="all">

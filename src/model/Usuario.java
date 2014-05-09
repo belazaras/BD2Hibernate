@@ -10,7 +10,7 @@ public class Usuario {
 	private Sesion sesionActual;
 	private GestorDeContenidos gestor;
 	private Suscripcion suscripcion;
-	private int idUsuario;
+	private Long idUsuario;
 	
 	/**Constructor/es**/
 	
@@ -90,11 +90,11 @@ public class Usuario {
 		this.sesionActual = sesionActual;
 	}
 	
-	public int getIdUsuario() {
+	public Long getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	

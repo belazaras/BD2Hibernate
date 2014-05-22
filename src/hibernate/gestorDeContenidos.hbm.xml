@@ -7,12 +7,13 @@
 	<class name="GestorDeContenidos" table="GESTORDECONTENIDOS">
 		<id name="idGestorDeContenidos" type="java.lang.Long">
 			<column name="ID_GESTORDECONTENIDOS" />
-			<generator class="native">
-				<param name="property">usuario</param>
-			</generator>
+			<generator class="native"/>
 		</id>
-		<one-to-one name="usuario" class="model.Usuario"
-			constrained="true"></one-to-one>
+		
+		<one-to-one name="usuario"
+					property-ref="gestor" 
+					class="model.Usuario"/>
+				
 		
 		<list name="reproducciones" table="REPRODUCCION" cascade="all" inverse="false">
 			<key column="ID_GESTORDECONTENIDOS"/>

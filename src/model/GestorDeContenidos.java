@@ -7,14 +7,6 @@ public class GestorDeContenidos {
 	// Identificador
 	private Long idGestorDeContenidos;
 
-	public Long getIdGestorDeContenidos() {
-		return idGestorDeContenidos;
-	}
-
-	public void setIdGestorDeContenidos(Long idGestorDeContenidos) {
-		this.idGestorDeContenidos = idGestorDeContenidos;
-	}
-
 	// Variables de instancia
 	private Usuario usuario;
 	private Catalogo catalogo;
@@ -118,6 +110,7 @@ public class GestorDeContenidos {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+		this.usuario.setGestor(this);
 	}
 
 	public void setCatalogo(Catalogo catalogo) {
@@ -126,6 +119,14 @@ public class GestorDeContenidos {
 
 	public void setReproducciones(Collection<Reproduccion> reproducciones) {
 		this.reproducciones = reproducciones;
+	}
+	
+	public Long getIdGestorDeContenidos() {
+		return idGestorDeContenidos;
+	}
+
+	public void setIdGestorDeContenidos(Long idGestorDeContenidos) {
+		this.idGestorDeContenidos = idGestorDeContenidos;
 	}
 	
 	

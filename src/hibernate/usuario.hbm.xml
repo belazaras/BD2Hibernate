@@ -17,9 +17,11 @@
 					 not-null="false"
 					 cascade="all"/>
 		
-		<one-to-one name="gestor"
-					class="model.GestorDeContenidos" 
-					cascade="save-update"/>	
+		<many-to-one name="gestor"
+					 column="ID_GESTORDECONTENIDOS"
+					 unique="true"
+					 class="model.GestorDeContenidos" 
+					 cascade="save-update"/>	
 		
 		<many-to-one name="suscripcion" 
 					 column="ID_SUSCRIPCION"

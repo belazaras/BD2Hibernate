@@ -110,7 +110,8 @@ public class GestorDeContenidos {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-		this.usuario.setGestor(this);
+		/**if (this.usuario.getGestor() != this)
+		  this.usuario.setGestor(this);**/
 	}
 
 	public void setCatalogo(Catalogo catalogo) {

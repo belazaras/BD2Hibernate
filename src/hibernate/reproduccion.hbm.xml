@@ -10,6 +10,12 @@
 		</id>
 		<property name="fecha" not-null="true"/>
 		<property name="tiempo" not-null="true"/>
-		<!-- Ver reproducible	 --> 	 					
+		<!-- reproducible	 --> 	 
+		<any name="reproducible" id-type="long">
+		<meta-value value="Pelicula" class="Pelicula"/>
+		<meta-value value="Episodio" class="Episodio"/>
+		<column name="reproducible"/>
+		<column name="idReproducible"/>
+		</any>
 	</class>
 </hibernate-mapping>

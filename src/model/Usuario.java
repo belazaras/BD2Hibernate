@@ -69,7 +69,8 @@ public class Usuario {
 
 	public void setGestor(GestorDeContenidos gestor) {
 		this.gestor = gestor;
-		this.gestor.setUsuario(this);
+		/**if (this.gestor.getUsuario() != this)
+		  this.gestor.setUsuario(this);**/
 	}
 	
 	public Suscripcion getSuscripcion() {

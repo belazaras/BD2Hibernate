@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="model">
 	<class name="Contenido" table="CONTENIDO">
-		<id name="idContenido" column="ID_CONTENIDO">
+		<id name="idContenido" column="ID_CONTENIDO" type="long">
 			<generator class="native"/>
 		</id>
 		

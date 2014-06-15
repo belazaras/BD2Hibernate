@@ -20,7 +20,6 @@ public class Queries {
 	private static Session session = null;
 
 	public static void main(String[] args) throws ParseException {
-		// Session session = null;
 		try {
 			Configuration cfg = new Configuration();
 			cfg.configure("hibernate/hibernate.cfg.xml");
@@ -55,7 +54,7 @@ public class Queries {
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
-					.println("Listar el nombre de todas las series del sistema. Imprimir en consola: \"Título de la Serie: \"");
+					.println("A. Listar el nombre de todas las series del sistema. Imprimir en consola: \"Título de la Serie: \"");
 			System.out
 					.println("----------------------------------------------------------------------");
 			while (s.hasNext()) {
@@ -83,7 +82,7 @@ public class Queries {
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
-					.println("Listar las series cuyo título contenga una secuencia de caracteres (la secuencia es un parámetro). Imprimir en consola: \"Título de la Serie: \"");
+					.println("B. Listar las series cuyo título contenga una secuencia de caracteres (la secuencia es un parámetro). Imprimir en consola: \"Título de la Serie: \"");
 			System.out.println("Parámetro: \"" + sec + "\"");
 			System.out
 					.println("----------------------------------------------------------------------");
@@ -117,7 +116,7 @@ public class Queries {
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
-					.println("Listar los 5 episodios de series más vistos en el sistema.");
+					.println("C. Listar los 5 episodios de series más vistos en el sistema.");
 			System.out
 					.println("----------------------------------------------------------------------");
 			while (r.hasNext()) {
@@ -165,7 +164,7 @@ public class Queries {
 			tx.rollback();
 			
 			System.out.println("-------------------------------------------------------------------");
-			System.out.println("Informar la película más vista en un determinado año (donde el año es parametrizable).");
+			System.out.println("D. Informar la película más vista en un determinado año (donde el año es parametrizable).");
 			System.out.println("Parámetro: \"" + year + "\"");
 			
 			// Impresión del resultado.
@@ -176,7 +175,7 @@ public class Queries {
 				System.out
 						.println("----------------------------------------------------------------------");
 				System.out.println("Película más vista en el año: " + year
-						+ " es: " + repro.getReproducible().getTitulo() + "("
+						+ " es: " + repro.getReproducible().getTitulo() + " ("
 						+ cant + " reproducciones)");
 				System.out
 						.println("=======================================================================");
@@ -198,22 +197,23 @@ public class Queries {
 				+ "GROUP BY (user.idUsuario) "
 				+ "HAVING count(user.idUsuario) > :cantidadPeliculas "
 				+ "ORDER BY cantidadReproducciones DESC";
-
+		
 		Session session = sessionFactory.openSession();
 
 		try {
 			Transaction tx = session.beginTransaction();
 			List result = session.createQuery(queryString)
 					.setInteger("cantidadPeliculas", _cantidadPeliculas).list();
-			System.out
-					.println("-------------------------------------------------------------------");
-			System.out
-					.println("Listar los usuarios que reprodujeron más de n películas (donde n es parametrizable).");
-			System.out.println("Parámetro: \"" + _cantidadPeliculas + "\"");
-			System.out
-					.println("-------------------------------------------------------------------");
 			Iterator<?> ite = result.iterator();
 			tx.rollback();
+			System.out
+				.println("-------------------------------------------------------------------");
+			System.out
+				.println("E. Listar los usuarios que reprodujeron más de n películas (donde n es parametrizable).");
+			System.out.println("Parámetro: \"" + _cantidadPeliculas + "\"");
+			System.out
+				.println("-------------------------------------------------------------------");	
+			
 			while (ite.hasNext()) {
 				Object[] objects = (Object[]) ite.next();
 				Usuario user = (Usuario) objects[0];
@@ -395,12 +395,8 @@ public class Queries {
 		//Abro sesion
 		session = sessionFactory.openSession();
 		//La query a realizar
-		String queryString = "SELECT user.email, count(r.idReproduccion) as tot "
-				+ "FROM Usuario user INNER JOIN user.gestor g "
-				+ "INNER JOIN g.reproducciones r "
-				+ "INNER JOIN user.suscripcion s "// INNER JOIN s.idCategoria c "
-				+ "GROUP BY (user.idUsuario) "
-				+ "HAVING count(r.idReproduccion) > (s.categoria.limiteReproducciones - :cant)";
+		
+		String queryString = "from Usuario u where u.suscripcion.Categoria.limiteReproducciones - size(u.gestor.reproducciones) < :cant";
 		
 		Query result = session.createQuery(queryString).setInteger("cant", cant);
 		
@@ -418,9 +414,8 @@ public class Queries {
 			
 			//Imprimo iteracion
 			while (r.hasNext()) {
-				Object[] o = (Object[]) r.next();
-				System.out.println("Mail del usuario: " + o[0]);
-				System.out.println("Cant rep: " + o[1]);
+				Usuario o = (Usuario) r.next();
+				System.out.println("Mail del usuario: " + o.getEmail());
 			}
 			System.out.println("=======================================================================");
 		} catch (Exception e) {
@@ -431,4 +426,5 @@ public class Queries {
 			session.close();
 		}
 	}
+
 }

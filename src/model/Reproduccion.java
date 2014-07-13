@@ -31,7 +31,7 @@ public class Reproduccion {
 		this.tiempo = tiempo;
 	}
 
-	/** Métodos **/
+	/** Metodos **/
 
 	public Date getFecha() {
 		return fecha;
@@ -56,5 +56,5 @@ public class Reproduccion {
 	public void setReproducible(Reproducible reproducible) {
 		this.reproducible = reproducible;
 	}
-	
+
 }

@@ -30,7 +30,7 @@ public class Queries {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-		
+
 		listarSeries();
 		seriesConSecuencia("Sim");
 		cincoEpisodiosMasVistos();
@@ -54,12 +54,12 @@ public class Queries {
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
-					.println("A. Listar el nombre de todas las series del sistema. Imprimir en consola: \"Título de la Serie: \"");
+					.println("A. Listar el nombre de todas las series del sistema. Imprimir en consola: \"Titulo de la Serie: \"");
 			System.out
 					.println("----------------------------------------------------------------------");
 			while (s.hasNext()) {
 				Serie serie = (Serie) s.next();
-				System.out.println("Título de la Serie: " + serie.getTitulo());
+				System.out.println("Titulo de la Serie: " + serie.getTitulo());
 			}
 			System.out
 					.println("=======================================================================");
@@ -82,13 +82,13 @@ public class Queries {
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
-					.println("B. Listar las series cuyo título contenga una secuencia de caracteres (la secuencia es un parámetro). Imprimir en consola: \"Título de la Serie: \"");
-			System.out.println("Parámetro: \"" + sec + "\"");
+					.println("B. Listar las series cuyo titulo contenga una secuencia de caracteres (la secuencia es un parametro). Imprimir en consola: \"Titulo de la Serie: \"");
+			System.out.println("Parametro: \"" + sec + "\"");
 			System.out
 					.println("----------------------------------------------------------------------");
 			while (s.hasNext()) {
 				Serie serie = (Serie) s.next();
-				System.out.println("Título de la Serie: " + serie.getTitulo());
+				System.out.println("Titulo de la Serie: " + serie.getTitulo());
 			}
 			System.out
 					.println("=======================================================================");
@@ -116,7 +116,7 @@ public class Queries {
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
-					.println("C. Listar los 5 episodios de series más vistos en el sistema.");
+					.println("C. Listar los 5 episodios de series mas vistos en el sistema.");
 			System.out
 					.println("----------------------------------------------------------------------");
 			while (r.hasNext()) {
@@ -158,23 +158,25 @@ public class Queries {
 			Query result = session.createQuery(queryString)
 					.setDate("ini", fechaIni).setDate("fin", fechaFin)
 					.setMaxResults(1);
-			
-			Transaction tx = session.beginTransaction();	
-				Iterator<?> r = result.iterate();
+
+			Transaction tx = session.beginTransaction();
+			Iterator<?> r = result.iterate();
 			tx.rollback();
-			
-			System.out.println("-------------------------------------------------------------------");
-			System.out.println("D. Informar la película más vista en un determinado año (donde el año es parametrizable).");
-			System.out.println("Parámetro: \"" + year + "\"");
-			
-			// Impresión del resultado.
+
+			System.out
+					.println("-------------------------------------------------------------------");
+			System.out
+					.println("D. Informar la pelicula mas vista en un determinado anio (donde el anio es parametrizable).");
+			System.out.println("Parametro: \"" + year + "\"");
+
+			// Impresion del resultado.
 			while (r.hasNext()) {
 				Object[] objects = (Object[]) r.next();
 				Reproduccion repro = (Reproduccion) objects[0];
 				Long cant = (Long) objects[1];
 				System.out
 						.println("----------------------------------------------------------------------");
-				System.out.println("Película más vista en el año: " + year
+				System.out.println("Pelicula mas vista en el anio: " + year
 						+ " es: " + repro.getReproducible().getTitulo() + " ("
 						+ cant + " reproducciones)");
 				System.out
@@ -197,7 +199,7 @@ public class Queries {
 				+ "GROUP BY (user.idUsuario) "
 				+ "HAVING count(user.idUsuario) > :cantidadPeliculas "
 				+ "ORDER BY cantidadReproducciones DESC";
-		
+
 		Session session = sessionFactory.openSession();
 
 		try {
@@ -207,13 +209,13 @@ public class Queries {
 			Iterator<?> ite = result.iterator();
 			tx.rollback();
 			System.out
-				.println("-------------------------------------------------------------------");
+					.println("-------------------------------------------------------------------");
 			System.out
-				.println("E. Listar los usuarios que reprodujeron más de n películas (donde n es parametrizable).");
-			System.out.println("Parámetro: \"" + _cantidadPeliculas + "\"");
+					.println("E. Listar los usuarios que reprodujeron mas de n peliculas (donde n es parametrizable).");
+			System.out.println("Parametro: \"" + _cantidadPeliculas + "\"");
 			System.out
-				.println("-------------------------------------------------------------------");	
-			
+					.println("-------------------------------------------------------------------");
+
 			while (ite.hasNext()) {
 				Object[] objects = (Object[]) ite.next();
 				Usuario user = (Usuario) objects[0];
@@ -234,195 +236,218 @@ public class Queries {
 	}
 
 	private static void menos65Seg() {
-		//Abro sesion
+		// Abro sesion
 		session = sessionFactory.openSession();
-		//La query a realizar
+		// La query a realizar
 		String queryString = "SELECT DISTINCT user.email "
 				+ "FROM Usuario user INNER JOIN user.gestor g "
 				+ "INNER JOIN g.reproducciones r "
 				+ "WHERE r.reproducible.class='model.Episodio' "
-				+ "AND r.tiempo < 65000"
-				+ "ORDER BY r.tiempo";
-		
+				+ "AND r.tiempo < 65000" + "ORDER BY r.tiempo";
+
 		Query result = session.createQuery(queryString);
-		
+
 		try {
-			//Itero dentro de la transaccion
+			// Itero dentro de la transaccion
 			Transaction tx = session.beginTransaction();
-				Iterator<?> m = result.iterate();
+			Iterator<?> m = result.iterate();
 			tx.rollback();
-			
-			//Imprimo
-			System.out.println("----------------------------------------------------------------------");
-			System.out.println("F. Listar los usuarios que vieron al menos un episodio por menos de 65 segundos.");
-			System.out.println("----------------------------------------------------------------------");
-			
-			//Imprimo iteracion
+
+			// Imprimo
+			System.out
+					.println("----------------------------------------------------------------------");
+			System.out
+					.println("F. Listar los usuarios que vieron al menos un episodio por menos de 65 segundos.");
+			System.out
+					.println("----------------------------------------------------------------------");
+
+			// Imprimo iteracion
 			while (m.hasNext()) {
 				String mail = (String) m.next();
 				System.out.println("Mail del usuario: " + mail);
 			}
-			System.out.println("=======================================================================");
+			System.out
+					.println("=======================================================================");
 		} catch (Exception e) {
-			//Si hay error lo imprimo
+			// Si hay error lo imprimo
 			System.out.println(e.getMessage());
 		} finally {
-			//Si o si cierro la sesion
+			// Si o si cierro la sesion
 			session.close();
 		}
 	}
-	
+
 	private static void nMasVistas(Integer n) {
-		//Abro sesion
+		// Abro sesion
 		session = sessionFactory.openSession();
-		//La query a realizar
+		// La query a realizar
 		String queryString = "SELECT r, count(idReproducible) as cant "
 				+ "FROM Reproduccion r "
 				+ "WHERE r.reproducible.class='model.Pelicula' "
 				+ "GROUP BY idReproducible ORDER BY cant DESC";
-		
+
 		Query result = session.createQuery(queryString).setMaxResults(n);
-		
+
 		try {
-			//Itero dentro de la transaccion
+			// Itero dentro de la transaccion
 			Transaction tx = session.beginTransaction();
-				Iterator<?> r = result.iterate();
+			Iterator<?> r = result.iterate();
 			tx.rollback();
-			
-			//Imprimo
-			System.out.println("----------------------------------------------------------------------");
-			System.out.println("G. Listar las n películas más vistas en el sistema.");
-			System.out.println("Parámetro n: \"" + n + "\"");
-			System.out.println("----------------------------------------------------------------------");
-			
-			//Imprimo iteracion
+
+			// Imprimo
+			System.out
+					.println("----------------------------------------------------------------------");
+			System.out
+					.println("G. Listar las n peliculas mas vistas en el sistema.");
+			System.out.println("Parametro n: \"" + n + "\"");
+			System.out
+					.println("----------------------------------------------------------------------");
+
+			// Imprimo iteracion
 			while (r.hasNext()) {
 				Object[] objects = (Object[]) r.next();
 				Reproduccion rep = (Reproduccion) objects[0];
 				Long reproducciones = (Long) objects[1];
-				System.out.println("La Película: " + rep.getReproducible().getTitulo() + " ha sido vista: " + reproducciones + " veces");
+				System.out.println("La Pelicula: "
+						+ rep.getReproducible().getTitulo()
+						+ " ha sido vista: " + reproducciones + " veces");
 			}
-			System.out.println("=======================================================================");
+			System.out
+					.println("=======================================================================");
 		} catch (Exception e) {
-			//Si hay error lo imprimo
+			// Si hay error lo imprimo
 			System.out.println(e.getMessage());
 		} finally {
-			//Si o si cierro la sesion
+			// Si o si cierro la sesion
 			session.close();
 		}
 	}
-	
+
 	private static void usuariosVieronEpi(String titulo) {
-		//Abro sesion
+		// Abro sesion
 		session = sessionFactory.openSession();
-		//La query a realizar
+		// La query a realizar
 		String queryString = "SELECT DISTINCT user.email "
 				+ "FROM Usuario user INNER JOIN user.gestor g "
 				+ "INNER JOIN g.reproducciones r "
 				+ "WHERE r.reproducible.class='model.Episodio' "
 				+ "AND r.reproducible.id = "
 				+ "( SELECT id FROM Episodio WHERE titulo=:titu )";
-		
-		Query result = session.createQuery(queryString).setString("titu", titulo);
-		
+
+		Query result = session.createQuery(queryString).setString("titu",
+				titulo);
+
 		try {
-			//Itero dentro de la transaccion
+			// Itero dentro de la transaccion
 			Transaction tx = session.beginTransaction();
-				Iterator<?> r = result.iterate();
+			Iterator<?> r = result.iterate();
 			tx.rollback();
-			
-			//Imprimo
-			System.out.println("----------------------------------------------------------------------");
-			System.out.println("H. Listar los usuarios que vieron un episodio cuyo título se ingresa por parámetro.");
-			System.out.println("Parámetro título: \"" + titulo + "\"");
-			System.out.println("----------------------------------------------------------------------");
-			
-			//Imprimo iteracion
+
+			// Imprimo
+			System.out
+					.println("----------------------------------------------------------------------");
+			System.out
+					.println("H. Listar los usuarios que vieron un episodio cuyo titulo se ingresa por parametro.");
+			System.out.println("Parametro titulo: \"" + titulo + "\"");
+			System.out
+					.println("----------------------------------------------------------------------");
+
+			// Imprimo iteracion
 			while (r.hasNext()) {
 				String mail = (String) r.next();
 				System.out.println("Mail del usuario: " + mail);
 			}
-			System.out.println("=======================================================================");
+			System.out
+					.println("=======================================================================");
 		} catch (Exception e) {
-			//Si hay error lo imprimo
+			// Si hay error lo imprimo
 			System.out.println(e.getMessage());
 		} finally {
-			//Si o si cierro la sesion
+			// Si o si cierro la sesion
 			session.close();
 		}
 	}
-	
+
 	private static void usuariosPeliMenor12() {
-		//Abro sesion
+		// Abro sesion
 		session = sessionFactory.openSession();
-		//La query a realizar
+		// La query a realizar
 		String queryString = "SELECT DISTINCT user.email "
 				+ "FROM Usuario user INNER JOIN user.gestor g "
 				+ "INNER JOIN g.reproducciones r "
 				+ "WHERE r.reproducible.class='model.Pelicula' "
 				+ "AND r.reproducible.id in "
 				+ "( SELECT id FROM Pelicula WHERE edadMinima=12)";
-		
+
 		Query result = session.createQuery(queryString);
-		
+
 		try {
-			//Itero dentro de la transaccion
+			// Itero dentro de la transaccion
 			Transaction tx = session.beginTransaction();
-				Iterator<?> r = result.iterate();
+			Iterator<?> r = result.iterate();
 			tx.rollback();
-			
-			//Imprimo
-			System.out.println("----------------------------------------------------------------------");
-			System.out.println("I. Listar usuarios que reprodujeron al menos una película cuya edad mínima sea 12 años.");
-			System.out.println("----------------------------------------------------------------------");
-			
-			//Imprimo iteracion
+
+			// Imprimo
+			System.out
+					.println("----------------------------------------------------------------------");
+			System.out
+					.println("I. Listar usuarios que reprodujeron al menos una pelicula cuya edad minima sea 12 anios.");
+			System.out
+					.println("----------------------------------------------------------------------");
+
+			// Imprimo iteracion
 			while (r.hasNext()) {
 				String mail = (String) r.next();
 				System.out.println("Mail del usuario: " + mail);
 			}
-			System.out.println("=======================================================================");
+			System.out
+					.println("=======================================================================");
 		} catch (Exception e) {
-			//Si hay error lo imprimo
+			// Si hay error lo imprimo
 			System.out.println(e.getMessage());
 		} finally {
-			//Si o si cierro la sesion
+			// Si o si cierro la sesion
 			session.close();
 		}
 	}
-	
+
 	private static void limiteReproducciones(Integer cant) {
-		//Abro sesion
+		// Abro sesion
 		session = sessionFactory.openSession();
-		//La query a realizar
-		
+		// La query a realizar
+
 		String queryString = "from Usuario u where u.suscripcion.Categoria.limiteReproducciones - size(u.gestor.reproducciones) < :cant";
-		
-		Query result = session.createQuery(queryString).setInteger("cant", cant);
-		
+
+		Query result = session.createQuery(queryString)
+				.setInteger("cant", cant);
+
 		try {
-			//Itero dentro de la transaccion
+			// Itero dentro de la transaccion
 			Transaction tx = session.beginTransaction();
-				Iterator<?> r = result.iterate();
+			Iterator<?> r = result.iterate();
 			tx.rollback();
-			
-			//Imprimo
-			System.out.println("----------------------------------------------------------------------");
-			System.out.println("J. Listar los usuarios que estén a menos de una cantidad dada de reproducciones para llegar al límite de las mismas para su categoría.");
-			System.out.println("Parámetro cantidad: \"" + cant + "\"");
-			System.out.println("----------------------------------------------------------------------");
-			
-			//Imprimo iteracion
+
+			// Imprimo
+			System.out
+					.println("----------------------------------------------------------------------");
+			System.out
+					.println("J. Listar los usuarios que esten a menos de una cantidad dada de reproducciones para llegar al limite de las mismas para su categoria.");
+			System.out.println("Parametro cantidad: \"" + cant + "\"");
+			System.out
+					.println("----------------------------------------------------------------------");
+
+			// Imprimo iteracion
 			while (r.hasNext()) {
 				Usuario o = (Usuario) r.next();
 				System.out.println("Mail del usuario: " + o.getEmail());
 			}
-			System.out.println("=======================================================================");
+			System.out
+					.println("=======================================================================");
 		} catch (Exception e) {
-			//Si hay error lo imprimo
+			// Si hay error lo imprimo
 			System.out.println(e.getMessage());
 		} finally {
-			//Si o si cierro la sesion
+			// Si o si cierro la sesion
 			session.close();
 		}
 	}

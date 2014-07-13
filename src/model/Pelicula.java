@@ -26,7 +26,7 @@ public class Pelicula extends Contenido implements Reproducible {
 		this.duracion = duracion;
 	}
 
-	/** Métodos **/
+	/** Metodos **/
 	@Override
 	public long getDuracion() {
 		// TODO Auto-generated method stub
@@ -56,5 +56,5 @@ public class Pelicula extends Contenido implements Reproducible {
 	public void setDuracion(long duracion) {
 		this.duracion = duracion;
 	}
-	
+
 }

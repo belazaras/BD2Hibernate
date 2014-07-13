@@ -16,7 +16,7 @@
 			<many-to-many class="Episodio" not-found="exception"/>
 		</list>
 		
-		<many-to-one name="Serie" column="ID_CONTENIDO" not-null="true" />
+		<many-to-one name="serie" column="ID_SERIE" not-null="true" />
 		
 				 	 					
 	</class>

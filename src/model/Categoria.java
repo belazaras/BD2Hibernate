@@ -25,7 +25,7 @@ public class Categoria {
 		this.limiteReproducciones = limiteReproducciones;
 	}
 
-	// Métodos
+	// Metodos
 
 	public int limiteDeReproducciones() {
 		return this.limiteReproducciones;
@@ -38,5 +38,5 @@ public class Categoria {
 	public void setLimiteReproducciones(int limiteReproducciones) {
 		this.limiteReproducciones = limiteReproducciones;
 	}
-	
+
 }

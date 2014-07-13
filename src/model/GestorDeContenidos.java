@@ -23,7 +23,7 @@ public class GestorDeContenidos {
 		this.reproducciones = new ArrayList<Reproduccion>();
 	}
 
-	// Métodos
+	// Metodos
 	public Collection<Episodio> episodiosVistos() {
 		Collection<Episodio> epis = new ArrayList<Episodio>();
 		Iterator<Reproduccion> it = this.reproducciones.iterator();
@@ -110,8 +110,9 @@ public class GestorDeContenidos {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-		/**if (this.usuario.getGestor() != this)
-		  this.usuario.setGestor(this);**/
+		/**
+		 * if (this.usuario.getGestor() != this) this.usuario.setGestor(this);
+		 **/
 	}
 
 	public void setCatalogo(Catalogo catalogo) {
@@ -121,7 +122,7 @@ public class GestorDeContenidos {
 	public void setReproducciones(Collection<Reproduccion> reproducciones) {
 		this.reproducciones = reproducciones;
 	}
-	
+
 	public Long getIdGestorDeContenidos() {
 		return idGestorDeContenidos;
 	}
@@ -129,6 +130,5 @@ public class GestorDeContenidos {
 	public void setIdGestorDeContenidos(Long idGestorDeContenidos) {
 		this.idGestorDeContenidos = idGestorDeContenidos;
 	}
-	
-	
+
 }

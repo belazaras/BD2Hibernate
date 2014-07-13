@@ -47,5 +47,5 @@ public abstract class Contenido {
 	public void setEdadMinima(int edadMinima) {
 		this.edadMinima = edadMinima;
 	}
-	
+
 }

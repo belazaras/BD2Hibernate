@@ -1,32 +1,33 @@
 package model;
+
 import java.util.*;
+
 public class Sesion {
-	
-	//Variables de instancia
+
+	// Variables de instancia
 	private Date fecha;
 	private Reproduccion reproduccion;
 	private int idSesion;
-	
 
-	//Constructores
-	public Sesion(){
-		
+	// Constructores
+	public Sesion() {
+
 	}
-	
-	public Sesion(Reproduccion reproduccion, Date fecha){
-		this.reproduccion=reproduccion;
-		this.fecha=fecha;
+
+	public Sesion(Reproduccion reproduccion, Date fecha) {
+		this.reproduccion = reproduccion;
+		this.fecha = fecha;
 	}
-	
-	//Metodos
+
+	// Metodos
 	public Date getFecha() {
 		return this.fecha;
 	}
-	
-	public Reproduccion getReproduccion(){
+
+	public Reproduccion getReproduccion() {
 		return this.reproduccion;
 	}
-	
+
 	public int getIdSesion() {
 		return idSesion;
 	}
@@ -42,5 +43,5 @@ public class Sesion {
 	public void setReproduccion(Reproduccion reproduccion) {
 		this.reproduccion = reproduccion;
 	}
-	
+
 }

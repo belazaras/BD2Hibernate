@@ -2,20 +2,20 @@ package model;
 
 public class CategoriaInvitado extends Categoria {
 
-	/**Construcotres**/
-	public CategoriaInvitado(){
-		this.limiteReproducciones=10;
+	/** Construcotres **/
+	public CategoriaInvitado() {
+		this.limiteReproducciones = 10;
 	}
-	
-	public CategoriaInvitado(int limite){
-		this.limiteReproducciones=limite;
+
+	public CategoriaInvitado(int limite) {
+		this.limiteReproducciones = limite;
 	}
-	
-	/**Métodos**/
+
+	/** Metodos **/
 	@Override
 	public int limiteDeReproducciones() {
-		
+
 		return this.limiteReproducciones;
 	}
-	
+
 }

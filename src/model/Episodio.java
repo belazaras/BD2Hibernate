@@ -32,11 +32,11 @@ public class Episodio implements Reproducible {
 		this.numero = numero;
 		this.titulo = titulo;
 		this.temporada = temporada;
-		this.temporada.agregarEpisodio(this);// Agrega el episodio recién creado
+		this.temporada.agregarEpisodio(this);// Agrega el episodio recien creado
 												// a la temporada
 	}
 
-	/** Métodos **/
+	/** Metodos **/
 	@Override
 	public String getTitulo() {
 		// TODO Auto-generated method stub
@@ -94,5 +94,5 @@ public class Episodio implements Reproducible {
 	public void setTemporada(Temporada temporada) {
 		this.temporada = temporada;
 	}
-	
+
 }

@@ -21,6 +21,7 @@ public class Queries {
 
 	public static void main(String[] args) throws ParseException {
 		try {
+			// Archivos de configuracion de hibernate
 			Configuration cfg = new Configuration();
 			cfg.configure("hibernate/hibernate.cfg.xml");
 			serviceRegistry = new ServiceRegistryBuilder().applySettings(
@@ -30,7 +31,11 @@ public class Queries {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-
+		// Comenzamos con los metodos de queries.
+		/**
+		 * La metodologia a utilizar en cada metodo esta dada por una
+		 * transaccion donde realizaremos cada consulta en HQL.
+		 **/
 		listarSeries();
 		seriesConSecuencia("Sim");
 		cincoEpisodiosMasVistos();
@@ -44,13 +49,19 @@ public class Queries {
 	}
 
 	private static void listarSeries() {
+		/** El metodo lista todas las series del sistema **/
 		session = sessionFactory.openSession();
+		// La query a realizar
 		Query series = session.createQuery("from Serie");
 		try {
+
 			session = sessionFactory.openSession();
+			// Abrimos la transaccion
 			Transaction tx = session.beginTransaction();
-			Iterator<?> s = series.iterate();
-			tx.rollback();
+			Iterator<?> s = series.iterate(); // El iterador s lo utilizaremos
+												// para imprimir los resultados
+			tx.rollback(); // Cerramos la transaccion
+
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
@@ -71,8 +82,15 @@ public class Queries {
 	}
 
 	private static void seriesConSecuencia(String sec) {
+		/**
+		 * El metodo lista aquellas series cuyo titulo posea una secuencia
+		 * recibida por parametro
+		 **/
+		// La query a realizar
 		String queryString = "from Serie s where s.titulo like :sec";
+		// Abrimos la transaccion
 		session = sessionFactory.openSession();
+		// :sec sera seteado con la secuencia que recibimos por parametro
 		Query seriesSec = session.createQuery(queryString).setString("sec",
 				"%" + sec + "%");
 		try {
@@ -101,18 +119,24 @@ public class Queries {
 	}
 
 	private static void cincoEpisodiosMasVistos() {
-
+		/**
+		 * La consulta devuelve aquellos cinco episodios mas vistos de todo el
+		 * sistema
+		 **/
+		// La query a realizar
 		String queryString = "SELECT r, count(idReproducible) as cant "
 				+ "FROM Reproduccion r "
 				+ "WHERE r.reproducible.class ='model.Episodio' "
 				+ "GROUP BY idReproducible " + "ORDER BY cant desc";
+
 		session = sessionFactory.openSession();
 		Query result = session.createQuery(queryString);
 		result.setMaxResults(5);
 		try {
-			Transaction tx = session.beginTransaction();
-			Iterator<?> r = result.iterate();
-			tx.rollback();
+			Transaction tx = session.beginTransaction(); // Abrimos transaccion
+			Iterator<?> r = result.iterate(); // Iterador auxiliar para los
+												// resultados
+			tx.rollback();// Cerramos transaccion
 			System.out
 					.println("----------------------------------------------------------------------");
 			System.out
@@ -144,7 +168,11 @@ public class Queries {
 	}
 
 	private static void peliMasVista(String year) throws ParseException {
-
+		/**
+		 * La consulta devuelve aquella pelicula mas vista del sistema,
+		 * recibiendo un anio por parametro
+		 **/
+		// La query a realizar
 		String queryString = "SELECT r, count(idReproducible) as cant "
 				+ "FROM Reproduccion r "
 				+ "WHERE r.reproducible.class ='model.Pelicula' and r.fecha between :ini and :fin "
@@ -192,6 +220,10 @@ public class Queries {
 	}
 
 	private static void masPeliculas(int _cantidadPeliculas) {
+		/**
+		 * La consulta devuelve aquellos usuarios que reprodujeron mas de
+		 * _cantidadPeliculas recibido por parametro
+		 **/
 		String queryString = "SELECT user,count(user.idUsuario) AS cantidadReproducciones "
 				+ "FROM Usuario user INNER JOIN user.gestor g "
 				+ "INNER JOIN g.reproducciones r "
@@ -236,6 +268,11 @@ public class Queries {
 	}
 
 	private static void menos65Seg() {
+		/**
+		 * La consulta devuelve aquellos usuarios que vieron un episodio por mas
+		 * de 65 segundos
+		 **/
+
 		// Abro sesion
 		session = sessionFactory.openSession();
 		// La query a realizar
@@ -278,6 +315,10 @@ public class Queries {
 	}
 
 	private static void nMasVistas(Integer n) {
+		/**
+		 * El metodo lista aquellas peliculas mas vistas del sistema, (La
+		 * cantidad se define por parametro)
+		 **/
 		// Abro sesion
 		session = sessionFactory.openSession();
 		// La query a realizar
@@ -324,6 +365,10 @@ public class Queries {
 	}
 
 	private static void usuariosVieronEpi(String titulo) {
+		/**
+		 * El metodo lista aquellos usuarios que vieron determinado episodio,
+		 * cuyo titulo se recibe por parametro
+		 **/
 		// Abro sesion
 		session = sessionFactory.openSession();
 		// La query a realizar
@@ -369,6 +414,10 @@ public class Queries {
 	}
 
 	private static void usuariosPeliMenor12() {
+		/**
+		 * Este metodo lista aquellos usuarios que visualizaron una pelicula
+		 * cuya edad minima sea 12 anios
+		 **/
 		// Abro sesion
 		session = sessionFactory.openSession();
 		// La query a realizar
@@ -412,6 +461,11 @@ public class Queries {
 	}
 
 	private static void limiteReproducciones(Integer cant) {
+		/**
+		 * Lista aquellos usuarios que esten a una determinada cantidad de
+		 * llegar al limite de reproducciones, la cantidad se recibe por
+		 * parametro
+		 **/
 		// Abro sesion
 		session = sessionFactory.openSession();
 		// La query a realizar
